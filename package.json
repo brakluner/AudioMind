@@ -34,5 +34,13 @@
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
   "main": "index.js",
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fawzar24/AudioMind.git"
+  },
+  "bugs": {
+    "url": "https://github.com/fawzar24/AudioMind/issues"
+  },
+  "homepage": "https://github.com/fawzar24/AudioMind#readme"
 }
