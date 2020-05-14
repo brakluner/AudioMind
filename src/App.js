@@ -1,28 +1,37 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import {Layout, Header, Navigation, Drawer, Content } from 'react-mdl';
+import Main from './component/main';
+import { Link } from 'react-router-dom';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <div style={{height: '300px', position: 'relative'}}>
+        <Layout style={{background: 'url(https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX1674610.jpg) center / cover'}}>
+    
+            <Header transparent title="AudioMind" style={{color: 'white'}}>
+                <Navigation>
+                    <Link to="/">Sign Up</Link>
+                    <Link to="/">Log-In</Link>
+                </Navigation>
+            </Header>
+    
+            <Drawer title="AudioMind">
+                <Navigation>
+                    <Link to="/">Sign Up</Link>
+                    <Link to="/">Log-In</Link>
+                </Navigation>
+            </Drawer>
+    
+            <Content>
+                <div className="page-content" />
+                <Main/>
+            </Content>
+        </Layout>
+      </div>
   );
 }
 
 export default App;
 
-// im just testing 
+
