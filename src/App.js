@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 
 function App() {
   return (
+
     <div style={{height: '300px', position: 'relative'}}>
         <Layout style={{background: 'url(https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX1674610.jpg) center / cover'}}>
     
@@ -29,6 +30,7 @@ function App() {
             </Content>
         </Layout>
       </div>
+
   );
 }
 
