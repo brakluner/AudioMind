@@ -4,14 +4,14 @@ const contributors = [];
 const following = [];
 
 function FooterBar() {
-    return (
-        <div>
-            <a href="#">Settings</a>
-            <p>Audio Mind 2020</p>
-            <PersonList listArry={contributors} />
-            <PersonList listArry={following} />
-        </div>
-    )
+    // return (
+    //     // <div>
+    //     //     <a href="#">Settings</a>
+    //     //     <p>Audio Mind 2020</p>
+    //     //     <PersonList listArry={contributors} />
+    //     //     <PersonList listArry={following} />
+    //     // </div>
+    // )
 }
 
 export default FooterBar;

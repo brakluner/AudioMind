@@ -1,4 +1,31 @@
-.App {
+.header-color{
+  background: #2b5876;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #4e4376, #2b5876);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #4e4376, #2b5876); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+.landing-grid {
+  background: #2b5876;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #4e4376, #2b5876);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #4e4376, #2b5876); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+.card-content {
+  display: flex;
+}
+
+.favorites-content {
+  background-color: white;
+  padding: 2em;
+  margin: auto;
+  font-size: 66px;
+  border: red;
+}
+.favorites h1 {
+  text-align: center;
+}
+/* .App {
   text-align: center;
 }
 
@@ -35,4 +62,4 @@
   to {
     transform: rotate(360deg);
   }
-}
+} */
