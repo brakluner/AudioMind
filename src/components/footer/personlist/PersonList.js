@@ -5,18 +5,18 @@ function PersonList = ({ listArry }) => {
     var personsList = [];
     if (listArry) {
         personsList = listArry.map(persons => {
-
-            <li>{persons.name}</li>
-    );
+            return (
+                <li>{persons.name}</li>
+            );
+        });
         return (
-            <ul>{listItems}</ul>
+            <ul>{personsList}</ul>
         );
     } else {
         return (
             <ul>empty</ul>
         );
-    }
-
+    };
 };
 
 export default PersonList;
