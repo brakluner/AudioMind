@@ -1,36 +1,18 @@
 import React from 'react';
-import './App.css';
-import {Layout, Header, Navigation, Drawer, Content } from 'react-mdl';
-import Main from './component/main';
-import { Link } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import HomePage from "./HomePage";
+import LandingPage from './components/landingpage/LandingPage';
 
 function App() {
   return (
-
-    <div style={{height: '300px', position: 'relative'}}>
-        <Layout style={{background: 'url(https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX1674610.jpg) center / cover'}}>
-    
-            <Header transparent title="AudioMind" style={{color: 'white'}}>
-                <Navigation>
-                    <Link to="/">Sign Up</Link>
-                    <Link to="/">Log-In</Link>
-                </Navigation>
-            </Header>
-    
-            <Drawer title="AudioMind">
-                <Navigation>
-                    <Link to="/">Sign Up</Link>
-                    <Link to="/">Log-In</Link>
-                </Navigation>
-            </Drawer>
-    
-            <Content>
-                <div className="page-content" />
-                <Main/>
-            </Content>
-        </Layout>
-      </div>
-
+    <BrowserRouter>
+      <div>
+        <Switch>
+          <Route path="/home" component={HomePage} exact />
+          <Route path="/" component={LandingPage} />
+        </Switch>
+      </div >
+    </BrowserRouter>
   );
 }
 
