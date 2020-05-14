@@ -1,22 +1,25 @@
 import React from "react";
 
 
-function PersonList = ({ listArry }) => {
+const PersonList = ({ listArry }) => {
     var personsList = [];
     if (listArry) {
         personsList = listArry.map(persons => {
 
-            <li>{persons.name}</li>
-    );
-        return (
-            <ul>{listItems}</ul>
-        );
+            return (
+                <li>{persons.name}</li>
+            );
+
+        });
+
     } else {
         return (
             <ul>empty</ul>
         );
     }
-
+    return (
+        <ul>{personsList}</ul>
+    );
 };
 
 export default PersonList;
