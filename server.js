@@ -16,6 +16,7 @@ app.get('/login', function(req, res) {
       scope: 'user-read-private user-read-email',
       redirect_uri
     }))
+    console.log(res)
 })
 
 app.get('/callback', function(req, res) {
