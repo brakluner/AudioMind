@@ -1,9 +1,7 @@
 import React from 'react';
-import './App.css';
-import HomePage from "./HomePage";
-import FooterBar from "./components/footer/FooterBar";
-import LandingPage from './components/landingpage/LandingPage';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import HomePage from "./HomePage";
+import LandingPage from './components/landingpage/LandingPage';
 
 function App() {
   return (
