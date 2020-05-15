@@ -1,5 +1,6 @@
 import React from "react";
-const number = "";
+
+import Iframe from "./Iframe";
 
 function HeaderBar() {
     return (
@@ -13,9 +14,16 @@ function HeaderBar() {
                     <p className="personal-name">Your Name</p>
                 </div>
                 <div>
-                    <p>number of uploads: {number}</p>
+                    <p>number of uploads: </p>
                 </div>
+            
+
             </div>
+            <div>
+                <Iframe></Iframe>
+
+            </div>
+
         </div>
     )
 }
