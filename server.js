@@ -73,7 +73,7 @@ app.get('/api/', (req,res) => {
                     file.isVideo = true;
                 } else {
                     file.isVideo = false;
-                } if(file.contentType === 'audio/wav' || file.contentType === 'audio/mpeg')
+                } if(file.contentType === 'audio/wav' || file.contentType === 'audio/mpeg' || file.contentType === 'audio/mp3')
                 {
                     file.isAudio = true;
                 } else {
@@ -159,7 +159,7 @@ app.get('/audio/:filename', (req, res) => {
             });
         }
         //check if video
-        if (file.contentType === 'audio/wav' || file.contentType === 'audio/mpeg') {
+        if (file.contentType === 'audio/wav' || file.contentType === 'audio/mpeg' || file.contentType === 'audio/mp3') {
             //REad output to brower
             const readstream = gfs.createReadStream(file.filename);
             readstream.pipe(res);
