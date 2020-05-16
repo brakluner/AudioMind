@@ -18,6 +18,8 @@ app.use(methodOverride('_method'));
 
 app.use(morgan('tiny'));
 
+
+
 //mongoURI
 
 const mongoURI = 'mongodb://localhost/gridFS';
@@ -59,11 +61,11 @@ const upload = multer({ storage });
 // @route GET /
 // desxcription lasds form
 
-app.get('/', (req,res) => {
+app.get('/api/', (req,res) => {
+    console.log("cabbage")
     gfs.files.find().toArray((err, files) => {
-        // Check if files
         if(!files || files.length === 0) {
-            res.render('index', {files: false});
+            res.json(file)
         } else {
             files.map(file => {
                 if(file.contentType === 'video/x-matroska') 
@@ -78,7 +80,7 @@ app.get('/', (req,res) => {
                     file.isAudio = false;
                 }
             });
-            res.render('index', {files: files})
+            res.send(files)
         }        
     });
 });
@@ -182,6 +184,6 @@ app.delete('/files/:id', (req,res) =>{
 })
 
 
-const port = 5000;
+const port = 3001;
 
 app.listen(port, console.log(`Server started on port ${port}`));

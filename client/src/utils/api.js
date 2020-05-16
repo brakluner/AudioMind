@@ -41,6 +41,7 @@ export default {
     // },
 
     getFiles: function() {
-        return axios.get("/files")
+        console.log("message we here")
+        return axios.get("/api/")
     }
 }

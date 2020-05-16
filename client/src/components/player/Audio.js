@@ -17,11 +17,12 @@ function loadFiles() {
         )
         .catch(err => console.log(err));
 };
-
+console.log(files)
 
     return (
         <div className="row">
-            {files.name}
+            {files.map((file) => file.isAudio ? <div>{file.filename}</div> : null
+            )}
         </div>
     );
 }
