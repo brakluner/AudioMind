@@ -21,7 +21,9 @@ console.log(files)
 
     return (
         <div className="row">
-            {files.map((file) => file.isAudio ? <div>{file.filename}</div> : null
+            {files.map((file) => file.isAudio ? <audio controls>
+                <source src={`audio/${file.filename}`} />
+            </audio> : null
             )}
         </div>
     );

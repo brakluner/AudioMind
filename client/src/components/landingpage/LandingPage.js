@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Grid, Cell, CardActions, Button, } from 'react-mdl';
 import { NavLink } from 'react-router-dom';
 import Audio from '../player/Audio';
+import Video from '../player/Video';
 
 // import TopCharts from './topcharts/TopCharts';
 class LandingPage extends Component {
@@ -34,6 +35,7 @@ class LandingPage extends Component {
                             </form>
                             <div className="list-content">
                                <Audio />
+                               <Video />
                             </div>
                         </div>
                     </Cell>
