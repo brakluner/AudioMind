@@ -23,7 +23,14 @@ class LandingPage extends Component {
                     </Cell>
                     <Cell col={12}>
                         <div className="favorites-content">
-                            <h1>Top Charts</h1>
+                            <h1>Uploads</h1>
+                            <form action="/upload" method="POST" enctype="multipart/form-data">
+                                <div className="custom-file">
+                                    <input type="file" name="file" id="file" class="custom-file-input"/>
+                                    <label for="file" className="custom-file-label">Choose File</label>                                
+                                </div>
+                                <input type="submit" value="Submit" className="btn"></input>
+                            </form>
                             <div className="list-content">
                                 <ul>
                                     <li>ddraerar</li>
