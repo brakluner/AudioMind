@@ -1,28 +1,51 @@
 import React, { Component } from 'react';
-import { Grid, Cell, CardActions, Button, } from 'react-mdl';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
+import { makeStyles } from '@material-ui/core/styles';
+import Paper from '@material-ui/core/Paper';
+import Grid from '@material-ui/core/Grid';
+import Nav from './Nav'
 
 // import TopCharts from './topcharts/TopCharts';
 class LandingPage extends Component {
+
+    
     render() {
         return (
-            <div style={{ width: '100%', margin: 'auto' }}>
-                <Grid className="landing-grid">
-                    <Cell col={12}>
-                        <div className="card-content" >
-                            <CardActions border>
-                                <NavLink className="nav-link nav-color" activeClassName="active" to="/home">Home</NavLink>
-                            </CardActions>
-                            <CardActions border>
-                                <Button colored>View Updates</Button>
-                            </CardActions>
-                            <CardActions border>
-                                <Button colored>View Updates</Button>
-                            </CardActions>
-                        </div>
-                    </Cell>
-                    <Cell col={12}>
-                        <div className="favorites-content">
+            <div className={classes.root}>
+                <Grid container spacing={3}>
+                    <Grid item xs={12}>
+                        <Paper className={classes.paper}>xs=12</Paper>
+                    </Grid>
+                    <Grid item xs={6}>
+                        <Paper className={classes.paper}>xs=6</Paper>
+                    </Grid>
+                    <Grid item xs={6}>e={classes.paper}>xs=6</Paper>
+                    </Grid>
+                    <Grid item xs={3}>
+                        <Paper className={classes.paper}>xs=3</Paper>
+                    </Grid>
+                    <Grid item xs={3}>
+                        <Paper className={classes.paper}>xs=3</Paper>
+                    </Grid>
+                    <Grid item xs={3}>
+                        <Paper className={classes.paper}>xs=3</Paper>
+                    </Grid>
+                    <Grid item xs={3}>
+                        <Paper className={classes.paper}>xs=3</Paper>
+                    </Grid>
+                </Grid>
+            </div>
+
+        )
+    }
+}
+
+export default LandingPage;
+
+
+
+
+{/* <div className="favorites-content">
                             <h1>Top Charts</h1>
                             <div className="list-content">
                                 <ul>
@@ -33,12 +56,12 @@ class LandingPage extends Component {
                                     <li>fdfdafdaf</li>
                                 </ul>
                                 {/* <TopCharts/> */}
-                            </div>
-                        </div>
-                    </Cell>
-                </Grid>
-            </div>
-        )
-    }
-}
-export default LandingPage;
+                        //     </div>
+                        // </div> */}
+
+
+// Link to="/home">
+//                                             <button type="button">
+//                                                 Sign-UP
+//                                             </button>
+//                                     </Link>
