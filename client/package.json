@@ -4,6 +4,7 @@
   "private": true,
   "proxy": "http://localhost:3001/",
   "dependencies": {
+    "@material-ui/core": "^4.9.14",
     "axios": "^0.18.0",
     "query-string": "^6.12.1",
     "react": "^16.6.3",
