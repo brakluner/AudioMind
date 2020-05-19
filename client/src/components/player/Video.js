@@ -1,6 +1,7 @@
 import React, { useState, useEffect} from "react";
 import API from "../../utils/api"
 
+
 console.log(API)
 
 function Video() {
@@ -20,8 +21,8 @@ function loadFiles() {
 console.log(files)
 
     return (
-        <div className="row">
-            {files.map((file) => file.isVideo ? <div><video controls>
+        <div className="row video">
+            {files.map((file) => file.isVideo ? <div><video width="500" controls>
                 <source src={`video/${file.filename}`} />
             </video>
             <form method='post' action={`/files/${file._id}>)}?_method=DELETE`}>
