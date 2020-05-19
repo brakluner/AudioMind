@@ -24,7 +24,7 @@ console.log(files)
             {files.map((file) => file.isAudio ? <div><audio controls>
                 <source src={`audio/${file.filename}`} />
             </audio>
-            <form method='post' action={`/files/${file._id}>)}?_method=DELETE`}>
+            <form method='POST' action={`/files/${file._id}?_method=DELETE`}>
                     <button>Delete</button>
                 </form>
                 <script>
@@ -35,7 +35,8 @@ console.log(files)
             audios[i].pause();
         }
     }
-}, true)};
+}, true)
+};
 </script>
             </div> : null
             )}
