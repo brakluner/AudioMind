@@ -22,7 +22,7 @@ app.use(morgan('tiny'));
 
 //mongoURI
 
-const mongoURI = 'mongodb://localhost/gridFS';
+const mongoURI = 'mongodb://audiomind:Mindaudio7@ds253857.mlab.com:53857/heroku_bq4k39gv';
 
 // create mongo connection
 const conn = mongoose.createConnection(mongoURI);
@@ -65,7 +65,7 @@ app.get('/api/', (req,res) => {
     console.log("cabbage")
     gfs.files.find().toArray((err, files) => {
         if(!files || files.length === 0) {
-            res.json(file)
+            res.json([])
         } else {
             files.map(file => {
                 if(file.contentType === 'video/x-matroska') 
