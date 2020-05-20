@@ -65,7 +65,7 @@ app.get('/api/', (req,res) => {
     console.log("cabbage")
     gfs.files.find().toArray((err, files) => {
         if(!files || files.length === 0) {
-            res.json(file)
+            res.json([])
         } else {
             files.map(file => {
                 if(file.contentType === 'video/x-matroska') 
@@ -73,7 +73,10 @@ app.get('/api/', (req,res) => {
                     file.isVideo = true;
                 } else {
                     file.isVideo = false;
-                } if(file.contentType === 'audio/wav' || file.contentType === 'audio/mpeg' || file.contentType === 'audio/mp3')
+                } if(file.contentType === 'audio/wav' || file.contentType === 'audio/mpeg' 
+                || file.contentType === 'audio/mp3' || file.contentType === 'audio/mpeg-4'
+                || file.contentType === 'audio/m4a' || file.contentType === 'audio/mp4' 
+                || file.contentType === 'audio/x-m4a')
                 {
                     file.isAudio = true;
                 } else {
@@ -159,7 +162,10 @@ app.get('/audio/:filename', (req, res) => {
             });
         }
         //check if video
-        if (file.contentType === 'audio/wav' || file.contentType === 'audio/mpeg' || file.contentType === 'audio/mp3') {
+        if (file.contentType === 'audio/wav' || file.contentType === 'audio/mpeg' 
+        || file.contentType === 'audio/mp3' || file.contentType === 'audio/mpeg-4'
+        || file.contentType === 'audio/m4a' || file.contentType === 'audio/mp4' 
+        || file.contentType === 'audio/x-m4a') {
             //REad output to brower
             const readstream = gfs.createReadStream(file.filename);
             readstream.pipe(res);
