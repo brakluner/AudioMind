@@ -61,27 +61,25 @@ const upload = multer({ storage });
 // @route GET /
 // desxcription lasds form
 
-app.get('/api/', (req,res) => {
+app.get('/api/', (req, res) => {
     console.log("cabbage")
     gfs.files.find().toArray((err, files) => {
-        if(!files || files.length === 0) {
-            res.json(file)
+        if (!files || files.length === 0) {
+            res.json([])
         } else {
             files.map(file => {
-                if(file.contentType === 'video/x-matroska') 
-                {
+                if (file.contentType === 'video/x-matroska') {
                     file.isVideo = true;
                 } else {
                     file.isVideo = false;
-                } if(file.contentType === 'audio/wav' || file.contentType === 'audio/mpeg' || file.contentType === 'audio/mp3')
-                {
+                } if (file.contentType === 'audio/wav' || file.contentType === 'audio/mpeg' || file.contentType === 'audio/mp3' || file.contentType === 'Audio/x-m4a') {
                     file.isAudio = true;
                 } else {
                     file.isAudio = false;
                 }
             });
             res.send(files)
-        }        
+        }
     });
 });
 
@@ -98,7 +96,7 @@ app.post('/upload', upload.single('file'), (req, res) => {
 app.get('/files', (req, res) => {
     gfs.files.find().toArray((err, files) => {
         // Check if files
-        if(!files || files.length === 0) {
+        if (!files || files.length === 0) {
             return res.status(404).json({
                 err: 'no files exist'
             });
@@ -112,7 +110,7 @@ app.get('/files', (req, res) => {
 // @route GET /files/:filename
 // description displays single files in JSON
 app.get('/files/:filename', (req, res) => {
-    gfs.files.findOne({filename: req.params.filename}, (err, file) => {
+    gfs.files.findOne({ filename: req.params.filename }, (err, file) => {
         //check if files
         if (!file || file.length === 0) {
             return res.status(404).json({
@@ -123,12 +121,12 @@ app.get('/files/:filename', (req, res) => {
         //file exists
         return res.json(file);
     });
-    });
+});
 
 // @route GET /files/:filename
 // description displays a video in JSON
 app.get('/video/:filename', (req, res) => {
-    gfs.files.findOne({filename: req.params.filename}, (err, file) => {
+    gfs.files.findOne({ filename: req.params.filename }, (err, file) => {
         //check if files
         if (!file || file.length === 0) {
             return res.status(404).json({
@@ -146,12 +144,12 @@ app.get('/video/:filename', (req, res) => {
             });
         }
     });
-    });
+});
 
 // @route GET /files/:filename
 // description displays all audio files in JSON
 app.get('/audio/:filename', (req, res) => {
-    gfs.files.findOne({filename: req.params.filename}, (err, file) => {
+    gfs.files.findOne({ filename: req.params.filename }, (err, file) => {
         //check if files
         if (!file || file.length === 0) {
             return res.status(404).json({
@@ -159,7 +157,7 @@ app.get('/audio/:filename', (req, res) => {
             });
         }
         //check if video
-        if (file.contentType === 'audio/wav' || file.contentType === 'audio/mpeg' || file.contentType === 'audio/mp3') {
+        if (file.contentType === 'audio/wav' || file.contentType === 'audio/mpeg' || file.contentType === 'audio/mp3' || file.contentType === 'audio/x-m4a') {
             //REad output to brower
             const readstream = gfs.createReadStream(file.filename);
             readstream.pipe(res);
@@ -169,13 +167,13 @@ app.get('/audio/:filename', (req, res) => {
             });
         }
     });
-    });
+});
 
 // @route DELETE /files/:id
 //description delets file
-app.delete('/files/:id', (req,res) =>{
-    gfs.remove({_id: req.params.id, root: 'uploads'}, (err, gridStore) => {
-        if(err) {
+app.delete('/files/:id', (req, res) => {
+    gfs.remove({ _id: req.params.id, root: 'uploads' }, (err, gridStore) => {
+        if (err) {
             return res.status(404).json({ err: err });
         }
 
