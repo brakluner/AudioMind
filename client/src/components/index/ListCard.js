@@ -1,5 +1,5 @@
 import React from "react";
-const number = "";
+// const number = " ";
 
 const Index = ({ cardSet }) => {
     let arryList = [];
