@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import HomePage from "./HomePage";
-import LandingPage from './components/landingpage/LandingPage';
+import LandingPage from './components/landingpage/CardButton';
 
 function App() {
   return (
