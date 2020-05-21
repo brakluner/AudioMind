@@ -14,7 +14,7 @@ function HeaderBar() {
         </div>
       </Grid>
       <Grid item xs={2}>
-        <p className="personal-name">Your Name</p>
+        {/* <p className="personal-name">Your Name</p> Usernames will be implemeneted later*/}
         <img className="avatar"></img>
         <div>
           <p>number of uploads: </p>
