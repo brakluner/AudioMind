@@ -21,7 +21,7 @@ console.log(files)
 
     return (
         <div className="row">
-            {files.map((file) => file.isAudio ? <div><audio controls>
+            {files.map((file) => file.isAudio ? <div><label>{file.filename}</label><br></br><audio controls>
                 <source src={`audio/${file.filename}`} />
             </audio>
             <form method='POST' action={`/files/${file._id}?_method=DELETE`}>
