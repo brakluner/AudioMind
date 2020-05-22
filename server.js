@@ -21,8 +21,8 @@ app.use(morgan('tiny'));
 
 
 //mongoURI
-
-const mongoURI = 'mongodb://localhost/gridFS';
+                
+const mongoURI = 'mongodb://audiomind:Mindaudio7@ds253857.mlab.com:53857/heroku_bq4k39gv';
 
 // create mongo connection
 const conn = mongoose.createConnection(mongoURI);
@@ -189,7 +189,10 @@ app.delete('/files/:id', (req,res) =>{
     })
 })
 
+if (process.env.NODE_ENV === "production") {
+    app.use(express.static("client/build"));
+  }
 
-const port = 3001;
+const port = process.env.PORT || 3001;
 
 app.listen(port, console.log(`Server started on port ${port}`));
