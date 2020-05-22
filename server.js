@@ -21,8 +21,8 @@ app.use(morgan('tiny'));
 
 
 //mongoURI
-
-const mongoURI = 'mongodb://localhost/gridFS';
+                
+const mongoURI = 'mongodb://audiomind:Mindaudio7@ds253857.mlab.com:53857/heroku_bq4k39gv';
 
 // create mongo connection
 const conn = mongoose.createConnection(mongoURI);
