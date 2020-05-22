@@ -22,7 +22,7 @@ console.log(files)
 
     return (
         <div className="row video">
-            {files.map((file) => file.isVideo ? <div><video width="500" controls>
+            {files.map((file) => file.isVideo ? <div><label>{file.filename}</label><br></br><video width="500" controls>
                 <source src={`video/${file.filename}`} />
             </video>
             <form method='post' action={`/files/${file._id}>)}?_method=DELETE`}>
