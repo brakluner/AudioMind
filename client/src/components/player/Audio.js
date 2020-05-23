@@ -21,7 +21,7 @@ console.log(files)
 
     return (
         <div className="row">
-            {files.map((file) => file.isAudio ? <div><audio controls>
+            {files.map((file) => file.isAudio ? <div><label>{file.filename}</label><br></br><audio controls>
                 <source src={`audio/${file.filename}`} />
             </audio>
             <form method='POST' action={`/files/${file._id}?_method=DELETE`}>
@@ -31,7 +31,7 @@ console.log(files)
         {document.addEventListener('play', function(e){
     var audios = document.getElementsByTagName('audio');
     for(var i = 0, len = audios.length; i < len;i++){
-        if(audios[i] != e.target){
+        if(audios[i] !== e.target){
             audios[i].pause();
         }
     }
