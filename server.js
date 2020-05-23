@@ -22,6 +22,7 @@ app.use(morgan('tiny'));
 
 //mongoURI
 
+// const mongoURI = 'mongodb://audiomind:Mindaudio7@ds253857.mlab.com:53857/heroku_bq4k39gv';
 const mongoURI = 'mongodb://localhost/gridFS';
 
 // create mongo connection
@@ -190,6 +191,6 @@ app.delete('/files/:id', (req,res) =>{
 })
 
 
-const port = 3001;
+const port = process.env.PORT || 3001;
 
 app.listen(port, console.log(`Server started on port ${port}`));
