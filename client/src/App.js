@@ -1,19 +1,21 @@
 import React from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import HomePage from "./HomePage";
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+//import ProfilePage from "./HomePage";
 import LandingPage from './components/landingpage/LandingPage';
 import NavBar from './components/nav/Nav';
+import ProfilePage from './components/profile/Profile';
 function App() {
   return (
-    <BrowserRouter>
+    <Router>
     <NavBar></NavBar>
       <div>
         <Switch>
-          <Route path="/home" component={HomePage} exact />
-          <Route path="/" component={LandingPage} />
+          <Route path="/profile" component={ProfilePage} exact />
+          <Route path="/"><LandingPage/></Route>
+          {/* <Route path="/profilepage"><Profile/></Route> */}
         </Switch>
       </div >
-    </BrowserRouter>
+    </Router>
   );
 }
 
