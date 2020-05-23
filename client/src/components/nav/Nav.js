@@ -14,7 +14,7 @@ export default function NavBar() {
       <a href="#" class="brand-logo">My Studio</a>
       <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="sass.html">Profile</a></li>
+        <li><Link to="/profile">Profile</Link></li>
         <li><a href="badges.html">Settings</a></li>
         <li><a href="collapsible.html">Inspiration</a></li>
       </ul>
@@ -22,9 +22,9 @@ export default function NavBar() {
     <div class="nav-content">
       <ul class="tabs tabs-transparent">
         <li class="tab"><Link to="/">My Uploads</Link></li>
-        <li class="tab"><Link to="/home">Browse</Link></li>
+        <li class="tab"><Link to="/profile">Browse</Link></li>
         <li class="tab disabled"><Link to="/">Favorites</Link></li>
-        <li class="tab"><Link to="/">Connect</Link></li>
+        <li class="tab"><Link to="/profilepage">Connect</Link></li>
       </ul>
     </div>
   </nav>
