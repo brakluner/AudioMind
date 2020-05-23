@@ -6,6 +6,10 @@ import {
   } from "react-router-dom";
   import { Link} from "react-router-dom";
   import Name from "./Name";
+  import Bio from "./Bio";
+  import Photo from "./Photo";
+  import Password from "./Password";
+ 
   import dog from './dog.jpg';
 
 
@@ -33,7 +37,6 @@ function ProfilePage() {
         <div class="card-image">
         <img class = "activator" src={dog} alt = "dog"/> 
           
-          <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
         </div>
         <div class="card-content">
         <span class="card-title">Jimmy</span>
@@ -51,14 +54,15 @@ function ProfilePage() {
           <Route path="/name">
             <Name />
           </Route>
-          <Route path="/photo">
-            <Name />
-          </Route>
           <Route path="/bio">
-            <Name />
+            <Bio />
           </Route>
+          <Route path="/photo">
+            <Photo />
+          </Route>
+         
           <Route path="/password">
-            <Name />
+            <Password />
           </Route>
           
           
