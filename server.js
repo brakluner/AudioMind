@@ -190,7 +190,7 @@ app.delete('/files/:id', (req,res) =>{
 })
 
 // if (process.env.NODE_ENV === "production") {
-//     app.use(express.static("client/build"));
+    app.use(express.static("client/build"));
 //   }
 
 const port = process.env.PORT || 3001;
