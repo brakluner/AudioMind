@@ -22,7 +22,7 @@ app.use(morgan('tiny'));
 
 //mongoURI
                 
-const mongoURI = 'mongodb://audiomind:Mindaudio7@ds253857.mlab.com:53857/heroku_bq4k39gv';
+const mongoURI = 'mongodb://audiomind:audio1234@ds157742.mlab.com:57742/heroku_kk2jdlnr';
 
 // create mongo connection
 const conn = mongoose.createConnection(mongoURI);
