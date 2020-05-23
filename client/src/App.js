@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 //import ProfilePage from "./HomePage";
 import LandingPage from './components/landingpage/LandingPage';
@@ -7,7 +8,11 @@ import Footer from './components/footerMusic/Footer';
 import ProfilePage from './components/profile/Profile';
 import Connect from './components/connect/Connect';
 import Browse from './components/browse/Browse';
+
 import Favorites from './components/favorites/Favorites';
+
+
+
 function App() {
   return (
     <Router>
