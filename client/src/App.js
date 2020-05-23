@@ -1,7 +1,8 @@
 import React from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch, Link } from 'react-router-dom';
 import HomePage from "./HomePage";
 import LandingPage from './components/landingpage/LandingPage';
+
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
     </BrowserRouter>
   );
 }
+
 
 export default App;
 
