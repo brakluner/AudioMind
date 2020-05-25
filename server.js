@@ -63,7 +63,6 @@ const upload = multer({ storage });
 // desxcription lasds form
 
 app.get('/api/', (req, res) => {
-    console.log("cabbage")
     gfs.files.find().toArray((err, files) => {
         if (!files || files.length === 0) {
             res.json([])
@@ -127,19 +126,24 @@ app.get('/files/:id', (req, res) => {
     });
 });
 
+
 // @route PUT /files/:filename
 // description updates file tto add to favorites
 app.put('/files/:filename', (req, res) => {
 
+    crypto.randomBytes(16, (err, buf) => {
+        if (err) throw err;
+    const filename = buf.toString('hex')
+    console.log(`${buf.length} bytes of random data: ${buf.toString('hex')}`)
     // var choco = req.body.metadata[0].isFavorite;
-    gfs.files.findOneAndUpdate({_id: req.params.filename}, { $set: {'isFavorite': 'true'}}, 
+    gfs.files.findOneAndUpdate({_id: req.params.filename}, { $set: {'isFavorite': 'true','filename': `${filename}` }}, 
          {upsert: true})
     res.redirect('/')
     
     });
-
-// @route PUT /files/:filename
-// description updates file tto add to favorites
+})
+// @route PUT /videofiles/:filename
+// description updates file tto add to videofavorites
 app.put('/videofiles/:filename', (req, res) => {
 
     // var choco = req.body.metadata[0].isFavorite;
@@ -211,6 +215,20 @@ app.delete('/files/:id', (req, res) => {
         res.redirect('/')
     })
 })
+
+// @route DELETE /files/:filename
+//description delets file by filename. used for upserts
+app.delete('/tagfiles/:filename', (req, res) => {
+    console.log(req.params.filename)
+    gfs.remove({ filename: req.params.filename, root: 'uploads' }, (err, gridStore) => {
+        if (err) {
+            return res.status(404).json({ err: err });
+        }
+
+        res.redirect('/favorites')
+    })
+})
+
 
 // if (process.env.NODE_ENV === "production") {
     app.use(express.static("client/build"));

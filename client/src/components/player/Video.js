@@ -27,7 +27,7 @@ if (path === '/'){
             {files.map((file) => file.isVideo ? <div><label>{file.filename}</label><br></br><video width="500" controls>
                 <source src={`video/${file.filename}`} />
             </video>
-            <form method='post' action={`/files/${file._id}>)}?_method=DELETE`}>
+            <form method='post' action={`/tagfiles/${file._id}?_method=DELETE`}>
                     <button>Delete</button>
                 </form>
                 <form method="POST" action={`/videofiles/${file.filename}?_method=PUT`}>
@@ -45,14 +45,9 @@ if (path === '/'){
             {files.map((file) => file.isFavoriteVideo ? <div><label>{file._id}</label><br></br><video width="500" controls>
                 <source src={`video/${file._id}`} />
             </video>
-            <form method='post' action={`/files/${file._id}>)}?_method=DELETE`}>
-                    <button>Delete</button>
+            <form method='post' action={`/tagfiles/${file._id}?_method=DELETE`}>
+                    <button>Remove Favorite</button>
                 </form>
-                <form method="POST" action={`/videofiles/${file.filename}?_method=PUT`}>
-            <button className="btn btn-primary btn-sm">
-            Remove Favorite
-          </button>
-            </form>
             </div> : null
             )}
         </div>
