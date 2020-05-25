@@ -1,6 +1,7 @@
 import React, { useState, useEffect} from "react";
 import API from "../../utils/api"
 
+
 console.log(API)
 
 function Audio() {
@@ -27,6 +28,11 @@ console.log(files)
             <form method='POST' action={`/files/${file._id}?_method=DELETE`}>
                     <button>Delete</button>
                 </form>
+            <form method="POST" action={`/files/${file._id}?_method=PUT`}>
+            <button className="btn btn-primary btn-sm">
+            Add Favorite
+          </button>
+            </form>
                 <script>
         {document.addEventListener('play', function(e){
     var audios = document.getElementsByTagName('audio');
