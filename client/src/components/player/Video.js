@@ -42,10 +42,10 @@ if (path === '/'){
 } else {
     return (
     <div className="row video">
-            {files.map((file) => file.isFavoriteVideo ? <div><label>{file._id}</label><br></br><video width="500" controls>
-                <source src={`video/${file._id}`} />
+            {files.filter((file) => file.isFavoriteVideo == "true").map((file) => file ? <div><label>{file._id}</label><br></br><video width="500" controls>
+                <source src={`video/${file.filename}`} />
             </video>
-            <form method='post' action={`/tagfiles/${file._id}?_method=DELETE`}>
+            <form method='post' action={`/tagfiles/${file.filename}?_method=PUT`}>
                     <button>Remove Favorite</button>
                 </form>
             </div> : null

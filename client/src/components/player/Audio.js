@@ -55,10 +55,10 @@ if (path === '/'){
     return (
         //const notPurchased = props.groceries.filter(grocery => !grocery.purchased);
         <div className="row">
-            {files.map((file) => file.isFavorite ? <div><label>{file._id}</label><br></br><audio controls>
-                <source src={`audio/${file._id}`} />
+    {files.filter((file) => file.isFavorite == "true").map((file) => file? <div><label>{file.filename}</label><br></br><audio controls>
+                <source src={`audio/${file.filename}`} />
             </audio>
-            <form method='POST' action={`/tagfiles/${file.filename}?_method=DELETE`}>
+            <form method='POST' action={`/tagfiles/${file.filename}?_method=PUT`}>
                     <button>Remove From Favorites</button>
                 </form>
                 <script>

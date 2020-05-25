@@ -131,28 +131,45 @@ app.get('/files/:id', (req, res) => {
 // description updates file tto add to favorites
 app.put('/files/:filename', (req, res) => {
 
-    crypto.randomBytes(16, (err, buf) => {
-        if (err) throw err;
-    const filename = buf.toString('hex')
-    console.log(`${buf.length} bytes of random data: ${buf.toString('hex')}`)
-    // var choco = req.body.metadata[0].isFavorite;
-    gfs.files.findOneAndUpdate({_id: req.params.filename}, { $set: {'isFavorite': 'true','filename': `${filename}` }}, 
+    // crypto.randomBytes(16, (err, buf) => {
+    //     if (err) throw err;
+    // const filename = buf.toString('hex')
+
+    gfs.files.findOneAndUpdate({filename: req.params.filename}, { $set: {'isFavorite': 'true'}}, 
          {upsert: true})
     res.redirect('/')
     
     });
-})
+// })
 // @route PUT /videofiles/:filename
 // description updates file tto add to videofavorites
 app.put('/videofiles/:filename', (req, res) => {
 
-    // var choco = req.body.metadata[0].isFavorite;
-    gfs.files.findOneAndUpdate({_id: req.params.filename}, { $set: {'isFavoriteVideo': 'true'}}, 
+    // crypto.randomBytes(16, (err, buf) => {
+    //     if (err) throw err;
+    //     const filename = buf.toString('hex')
+
+    gfs.files.findOneAndUpdate({filename: req.params.filename}, { $set: {'isFavoriteVideo': 'true'}}, 
          {upsert: true})
     res.redirect('/')
+});
+    
+
+    
+// @route update false /files/:filename
+//description delets file by filename. used for upserts
+app.put('/tagfiles/:filename', (req, res) => {
+    
+    crypto.randomBytes(16, (err, buf) => {
+        if (err) throw err;
+    const filename = buf.toString('hex')
+
+    gfs.files.findOneAndUpdate({filename: req.params.filename}, { $set: {'isFavorite': 'false','isFavoriteVideo': 'false'}}, 
+         {upsert: true})
+    res.redirect('/favorites')
     
     });
-
+})
 
 
 // @route GET /files/:filename
@@ -216,18 +233,6 @@ app.delete('/files/:id', (req, res) => {
     })
 })
 
-// @route DELETE /files/:filename
-//description delets file by filename. used for upserts
-app.delete('/tagfiles/:filename', (req, res) => {
-    console.log(req.params.filename)
-    gfs.remove({ filename: req.params.filename, root: 'uploads' }, (err, gridStore) => {
-        if (err) {
-            return res.status(404).json({ err: err });
-        }
-
-        res.redirect('/favorites')
-    })
-})
 
 
 // if (process.env.NODE_ENV === "production") {
