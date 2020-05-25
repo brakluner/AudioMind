@@ -167,12 +167,12 @@ render() {
         {/* <button onClick = {()=>window.location='http://localhost:8888/login'} style = {{ padding: '20px',margin: '10px','font-size':'30px'}}>Login</button> */}
   {/* <h1>{this.state.serverData.user && this.state.serverData.user.name}'s Playlist</h1>
   <Aggregate playlists={    this.state.serverData.user && this.state.serverData.user.playlists}/> */}
-  {/* <button onClick = {this.Country_Evolution} style = {{ padding: '20px', margin: '10px', 'font-size':'12px'}}>Country_Evolution</button>
+  <button onClick = {this.Country_Evolution} style = {{ padding: '20px', margin: '10px', 'font-size':'12px'}}>Country_Evolution</button>
   <button onClick = {this.World_Music} style = {{ padding: '20px', margin: '10px', 'font-size':'12px'}}>World Music Lounge</button>
   <button onClick = {this.Retrowave} style = {{ padding: '20px', margin: '10px', 'font-size':'12px'}}>Retrowave</button>
   <button onClick = {this.Classic_Rock} style = {{ padding: '20px', margin: '10px', 'font-size':'12px'}}>Classic Rock</button>
 
-  <button onClick = {this.EDM_Hits} style = {{ padding: '20px', margin: '10px', 'font-size':'12px'}}>EDM Hits 2020</button> */}
+  <button onClick = {this.EDM_Hits} style = {{ padding: '20px', margin: '10px', 'font-size':'12px'}}>EDM Hits 2020</button>
 
   
   {/* <button onClick = {()=>window.location='http://localhost:8888/login'} style = {{ padding: '20px','font-size':'50px'}}>Artist</button> */}

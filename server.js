@@ -63,7 +63,6 @@ const upload = multer({ storage });
 // desxcription lasds form
 
 app.get('/api/', (req, res) => {
-    console.log("cabbage")
     gfs.files.find().toArray((err, files) => {
         if (!files || files.length === 0) {
             res.json([])
@@ -113,8 +112,8 @@ app.get('/files', (req, res) => {
 
 // @route GET /files/:filename
 // description displays single files in JSON
-app.get('/files/:filename', (req, res) => {
-    gfs.files.findOne({ filename: req.params.filename }, (err, file) => {
+app.get('/files/:id', (req, res) => {
+    gfs.files.find({_id: req.params.id}, (err, file) => {
         //check if files
         if (!file || file.length === 0) {
             return res.status(404).json({
@@ -126,6 +125,52 @@ app.get('/files/:filename', (req, res) => {
         return res.json(file);
     });
 });
+
+
+// @route PUT /files/:filename
+// description updates file tto add to favorites
+app.put('/files/:filename', (req, res) => {
+
+    // crypto.randomBytes(16, (err, buf) => {
+    //     if (err) throw err;
+    // const filename = buf.toString('hex')
+
+    gfs.files.findOneAndUpdate({filename: req.params.filename}, { $set: {'isFavorite': 'true'}}, 
+         {upsert: true})
+    res.redirect('/')
+    
+    });
+// })
+// @route PUT /videofiles/:filename
+// description updates file tto add to videofavorites
+app.put('/videofiles/:filename', (req, res) => {
+
+    // crypto.randomBytes(16, (err, buf) => {
+    //     if (err) throw err;
+    //     const filename = buf.toString('hex')
+
+    gfs.files.findOneAndUpdate({filename: req.params.filename}, { $set: {'isFavoriteVideo': 'true'}}, 
+         {upsert: true})
+    res.redirect('/')
+});
+    
+
+    
+// @route update false /files/:filename
+//description delets file by filename. used for upserts
+app.put('/tagfiles/:filename', (req, res) => {
+    
+    crypto.randomBytes(16, (err, buf) => {
+        if (err) throw err;
+    const filename = buf.toString('hex')
+
+    gfs.files.findOneAndUpdate({filename: req.params.filename}, { $set: {'isFavorite': 'false','isFavoriteVideo': 'false'}}, 
+         {upsert: true})
+    res.redirect('/favorites')
+    
+    });
+})
+
 
 // @route GET /files/:filename
 // description displays a video in JSON
@@ -187,6 +232,8 @@ app.delete('/files/:id', (req, res) => {
         res.redirect('/')
     })
 })
+
+
 
 // if (process.env.NODE_ENV === "production") {
     app.use(express.static("client/build"));

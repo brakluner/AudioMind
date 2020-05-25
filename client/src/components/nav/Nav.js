@@ -8,6 +8,7 @@ export default function NavBar() {
   
 
   return (
+    
     <div>
     <nav class="nav-extended color">
     <div class="nav-wrapper">
@@ -16,26 +17,30 @@ export default function NavBar() {
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li><Link to="/profile">Profile</Link></li>
         
-        <li><a href="collapsible.html">Inspiration</a></li>
+        <li><Link to="/signin">Sign out</Link></li>
       </ul>
+      
     </div>
     <div class="nav-content">
       <ul class="tabs tabs-transparent">
         <li class="tab"><Link to="/">My Uploads</Link></li>
         <li class="tab"><Link to="/browse">Browse</Link></li>
-        <li class="tab disabled"><Link to="/">Favorites</Link></li>
+        <li class="tab"><Link to="/favorites">Favorites</Link></li>
+
         <li class="tab"><Link to="/connect">Connect</Link></li>
       </ul>
     </div>
+    
   </nav>
 
   <ul class="sidenav" id="mobile-demo">
-    <li><a href="sass.html">Sass</a></li>
-    <li><a href="badges.html">Components</a></li>
-    <li><a href="collapsible.html">JavaScript</a></li>
+  <li><Link to="/profile">Profile</Link></li>
+        
+        
   </ul>
 
  
   </div>
+ 
   );
 }
