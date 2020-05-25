@@ -115,7 +115,7 @@ app.get('/files', (req, res) => {
 // @route GET /files/:filename
 // description displays single files in JSON
 app.get('/files/:id', (req, res) => {
-    gfs.files.findOne({_id: req.params.id}, (err, file) => {
+    gfs.files.find({_id: req.params.id}, (err, file) => {
         //check if files
         if (!file || file.length === 0) {
             return res.status(404).json({
