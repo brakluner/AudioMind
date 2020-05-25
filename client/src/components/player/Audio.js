@@ -58,14 +58,9 @@ if (path === '/'){
             {files.map((file) => file.isFavorite ? <div><label>{file._id}</label><br></br><audio controls>
                 <source src={`audio/${file._id}`} />
             </audio>
-            <form method='POST' action={`/files/${file._id}?_method=DELETE`}>
-                    <button>Delete</button>
+            <form method='POST' action={`/tagfiles/${file.filename}?_method=DELETE`}>
+                    <button>Remove From Favorites</button>
                 </form>
-            <form method="POST" action={`/files/${file.filename}?_method=PUT`}>
-            <button className="btn btn-primary btn-sm">
-            Remove Favorite
-          </button>
-            </form>
                 <script>
         {document.addEventListener('play', function(e){
     var audios = document.getElementsByTagName('audio');
