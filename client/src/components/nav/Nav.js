@@ -17,7 +17,7 @@ export default function NavBar() {
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li><Link to="/profile">Profile</Link></li>
         
-        <li><a href="collapsible.html">Sign out</a></li>
+        <li><Link to="/signin">Sign out</Link></li>
       </ul>
       
     </div>
