@@ -113,8 +113,8 @@ app.get('/files', (req, res) => {
 
 // @route GET /files/:filename
 // description displays single files in JSON
-app.get('/files/:filename', (req, res) => {
-    gfs.files.findOne({ filename: req.params.filename }, (err, file) => {
+app.get('/files/:id', (req, res) => {
+    gfs.files.find({_id: req.params.id}, (err, file) => {
         //check if files
         if (!file || file.length === 0) {
             return res.status(404).json({
@@ -126,6 +126,17 @@ app.get('/files/:filename', (req, res) => {
         return res.json(file);
     });
 });
+
+// @route PUT /files/:filename
+// description updates file tto add to favorites
+app.put('/files/:filename', (req, res) => {
+
+    // var choco = req.body.metadata[0].isFavorite;
+    gfs.files.findOneAndUpdate({_id: req.params.filename}, { $set: {'isFavorite': 'true'}}, 
+         {upsert: true})
+    res.redirect('/')
+    
+    });
 
 // @route GET /files/:filename
 // description displays a video in JSON
