@@ -25,7 +25,8 @@ export default function NavBar() {
       <ul class="tabs tabs-transparent">
         <li class="tab"><Link to="/">My Uploads</Link></li>
         <li class="tab"><Link to="/browse">Browse</Link></li>
-        <li class="tab disabled"><Link to="/favorites">Favorites</Link></li>
+        <li class="tab"><Link to="/favorites">Favorites</Link></li>
+
         <li class="tab"><Link to="/connect">Connect</Link></li>
       </ul>
     </div>

@@ -6,6 +6,7 @@ const Main = () => (
 
     <Switch>
         <Route exact path='/' component={LandingPage} />
+        <Route exact path='/favorites' component={FavoritesPage}/>
     </Switch>
 )
 
