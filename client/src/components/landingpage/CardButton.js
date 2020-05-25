@@ -1,5 +1,4 @@
-import React, { Component } from 'react';
-import { Grid, Cell } from 'react-mdl';
+import React from 'react';
 
 const arry = [
     {
@@ -17,4 +16,4 @@ function LandingPage() {
     )
 }
 
-export default LandingPage
+export default LandingPage;
