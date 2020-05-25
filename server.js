@@ -138,6 +138,19 @@ app.put('/files/:filename', (req, res) => {
     
     });
 
+// @route PUT /files/:filename
+// description updates file tto add to favorites
+app.put('/videofiles/:filename', (req, res) => {
+
+    // var choco = req.body.metadata[0].isFavorite;
+    gfs.files.findOneAndUpdate({_id: req.params.filename}, { $set: {'isFavoriteVideo': 'true'}}, 
+         {upsert: true})
+    res.redirect('/')
+    
+    });
+
+
+
 // @route GET /files/:filename
 // description displays a video in JSON
 app.get('/video/:filename', (req, res) => {

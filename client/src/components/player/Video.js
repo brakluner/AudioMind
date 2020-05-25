@@ -18,7 +18,9 @@ function loadFiles() {
         )
         .catch(err => console.log(err));
 };
-console.log(files)
+var path = window.location.pathname
+
+if (path === '/'){
 
     return (
         <div className="row video">
@@ -28,9 +30,32 @@ console.log(files)
             <form method='post' action={`/files/${file._id}>)}?_method=DELETE`}>
                     <button>Delete</button>
                 </form>
+                <form method="POST" action={`/videofiles/${file.filename}?_method=PUT`}>
+            <button className="btn btn-primary btn-sm">
+            Add Favorite
+          </button>
+            </form>
             </div> : null
             )}
         </div>
     );
+} else {
+    return (
+    <div className="row video">
+            {files.map((file) => file.isFavoriteVideo ? <div><label>{file._id}</label><br></br><video width="500" controls>
+                <source src={`video/${file._id}`} />
+            </video>
+            <form method='post' action={`/files/${file._id}>)}?_method=DELETE`}>
+                    <button>Delete</button>
+                </form>
+                <form method="POST" action={`/videofiles/${file.filename}?_method=PUT`}>
+            <button className="btn btn-primary btn-sm">
+            Remove Favorite
+          </button>
+            </form>
+            </div> : null
+            )}
+        </div>
+)}
 }
 export default Video;
