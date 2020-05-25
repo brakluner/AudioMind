@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 //import ProfilePage from "./HomePage";
 import LandingPage from './components/landingpage/LandingPage';
@@ -17,12 +16,15 @@ import Signin from './components/login/signin';
 function App() {
   return (
     <Router>
-    <NavBar></NavBar>
+      <NavBar></NavBar>
       <div>
         <Switch>
           <Route path="/profile" component={ProfilePage} exact />
           <Route path="/connect" component={Connect} exact />
           <Route path="/browse" component={Browse} exact />
+<<<<<<< HEAD
+          <Route path="/"><LandingPage /></Route>
+=======
           <Route path='/favorites' component={FavoritesPage}/>
           
 <<<<<<< HEAD
@@ -31,6 +33,7 @@ function App() {
 =======
 >>>>>>> deacf9316876062763b3fd62e7bcbb135ab58423
           <Route path="/"><LandingPage/></Route>
+>>>>>>> 68345a5f5519d381e40074be15a51b2ff6f799e7
           {/* <Route path="/profilepage"><Profile/></Route> */}
         </Switch>
       </div >
