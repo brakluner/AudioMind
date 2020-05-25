@@ -31,7 +31,7 @@ if (path === '/'){
             <form method='POST' action={`/files/${file._id}?_method=DELETE`}>
                     <button>Delete</button>
                 </form>
-            <form method="POST" action={`/files/${file._id}?_method=PUT`}>
+            <form method="POST" action={`/files/${file.filename}?_method=PUT`}>
             <button className="btn btn-primary btn-sm">
             Add Favorite
           </button>
@@ -53,14 +53,15 @@ if (path === '/'){
     );
 } else {
     return (
+        //const notPurchased = props.groceries.filter(grocery => !grocery.purchased);
         <div className="row">
-            {files.map((file) => file.isAudio ? <div><label>{file.filename}</label><br></br><audio controls>
-                <source src={`audio/${file.filename}`} />
+            {files.map((file) => file.isFavorite ? <div><label>{file._id}</label><br></br><audio controls>
+                <source src={`audio/${file._id}`} />
             </audio>
             <form method='POST' action={`/files/${file._id}?_method=DELETE`}>
                     <button>Delete</button>
                 </form>
-            <form method="POST" action={`/files/${file._id}?_method=PUT`}>
+            <form method="POST" action={`/files/${file.filename}?_method=PUT`}>
             <button className="btn btn-primary btn-sm">
             Remove Favorite
           </button>

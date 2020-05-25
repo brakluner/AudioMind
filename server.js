@@ -130,10 +130,10 @@ app.get('/files/:id', (req, res) => {
 
 // @route PUT /files/:filename
 // description updates file tto add to favorites
-app.put('/files/:id', (req, res) => {
+app.put('/files/:filename', (req, res) => {
 
     // var choco = req.body.metadata[0].isFavorite;
-    gfs.files.findOneAndUpdate({_id: req.params.id}, { $set: {'isFavorite': 'true'}}, 
+    gfs.files.findOneAndUpdate({_id: req.params.filename}, { $set: {'isFavorite': 'true'}}, 
          {upsert: true})
     res.redirect('/')
     
