@@ -17,6 +17,10 @@ function loadFiles() {
         )
         .catch(err => console.log(err));
 };
+
+function addToFavorites () {
+    //finish to add to Favorites list
+}
 console.log(files)
 
     return (
@@ -26,12 +30,14 @@ console.log(files)
             </audio>
             <form method='POST' action={`/files/${file._id}?_method=DELETE`}>
                     <button>Delete</button>
+                    <button>Like</button>
+                    {document.getElementById("myBtn").addEventListener("click", addToFavorites)}
                 </form>
                 <script>
         {document.addEventListener('play', function(e){
     var audios = document.getElementsByTagName('audio');
     for(var i = 0, len = audios.length; i < len;i++){
-        if(audios[i] != e.target){
+        if(audios[i] !== e.target){
             audios[i].pause();
         }
     }

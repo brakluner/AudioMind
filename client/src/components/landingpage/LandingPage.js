@@ -6,12 +6,11 @@ import Video from '../player/Video';
 
 
 // import TopCharts from './topcharts/TopCharts';
-class LandingPage extends Component {
-    render() {
+function LandingPage() {
         return (
             <div style={{ width: '100%', margin: 'auto' }}>
                 <Grid className="landing-grid">
-                    <Cell col={12}>
+                    {/* <Cell col={12}>
                         <div className="card-content" >
                             <CardActions border>
                                 <NavLink className="nav-link nav-color" activeClassName="active" to="/home">Home</NavLink>
@@ -23,7 +22,7 @@ class LandingPage extends Component {
                                 <Button colored>View Updates</Button>
                             </CardActions>
                         </div>
-                    </Cell>
+                    </Cell> */}
                     <Cell col={12}>
                         <div className="favorites-content">
                             <h1>Uploads</h1>
@@ -43,6 +42,6 @@ class LandingPage extends Component {
                 </Grid>
             </div>
         )
-    }
+    
 }
 export default LandingPage;
