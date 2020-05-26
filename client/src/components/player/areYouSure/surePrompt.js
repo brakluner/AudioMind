@@ -1,3 +1,3 @@
 export default function areYouSure() {
-    alert("Are you sure you want to delete this?");
+    window.confirm("Are you sure you want to delete this?");
 };
