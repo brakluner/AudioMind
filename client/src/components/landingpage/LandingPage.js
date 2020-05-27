@@ -28,10 +28,10 @@ function LandingPage() {
                             <h1>Uploads</h1>
                             <form action="/upload" method="POST" enctype="multipart/form-data">
                                 <div className="custom-file">
-                                    <input type="file" name="file" id="file" class="custom-file-input"/>
-                                    <label for="file" className="custom-file-label">Choose File</label>                                
+                                    <input type="file" name="file" id="file" className="custom-file-input"/>
+                                    <label for="file" className="custom-file-label btn grey">Choose File</label>                                
                                 </div>
-                                <input type="submit" value="Submit" className="btn"></input>
+                                <input type="submit" value="Submit" className="btn grey"></input>
                             </form>
                             <div className="list-content">
                                <Audio />

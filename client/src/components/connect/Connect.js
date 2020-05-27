@@ -1,10 +1,39 @@
-import React from 'react';
+import React, {Component} from 'react';
 
 import dog from './dog.jpg';
 
 // import TopCharts from './topcharts/TopCharts';
-function Connect() {
+class Connect extends Component {
+  constructor(props) {
+    super(props);
+    // Manage the sort state in your application
+    this.state = {
+      sortName: undefined,
+      sortOrder: undefined,
+      // error: null,
+      isLoaded: false,
+      apiResult: [],
    
+    };
+   
+    this.onSortChange = this.onSortChange.bind(this);
+  }
+  componentDidMount() {
+    fetch("https://randomuser.me/api/?results=1")
+      .then((res) => res.json())
+      .then((result) => {
+        this.setState({
+          isLoaded: true,
+          apiResult: result.results,
+                
+
+        }, console.log(this.apiResult));
+      });
+
+
+ 
+  }
+   render() {
         return (
             <div class="row">
             <div class="col s3">
@@ -14,7 +43,7 @@ function Connect() {
                   <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
                 </div>
                 <div class="card-content">
-                <span class="card-title">Bob</span>
+                <span class="card-title" >Bob</span>
                   <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
                 </div>
               </div>
@@ -54,6 +83,7 @@ function Connect() {
            </div>
         )
     
+}
 }
 export default Connect;
 

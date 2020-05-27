@@ -1,4 +1,5 @@
-import React, { useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
+import areYouSure from './areYouSure/surePrompt';
 import API from "../../utils/api"
 
 
@@ -7,75 +8,75 @@ console.log(API)
 function Audio() {
     const [files, setFiles] = useState([])
 
-useEffect(() => {
-    loadFiles()
-}, [])
+    useEffect(() => {
+        loadFiles()
+    }, [])
 
-function loadFiles() {
-    API.getFiles()
-      .then(res =>
-        setFiles(res.data)
-        )
-        .catch(err => console.log(err));
-};
-console.log(files)
-var path = window.location.pathname
+    function loadFiles() {
+        API.getFiles()
+            .then(res =>
+                setFiles(res.data)
+            )
+            .catch(err => console.log(err));
+    };
+    console.log(files)
+    var path = window.location.pathname
 
-if (path === '/'){
+    if (path === '/') {
 
-    return (
-        <div className="row">
-            {files.map((file) => file.isAudio ? <div><label>{file.filename}</label><br></br><audio controls>
-                <source src={`audio/${file.filename}`} />
-            </audio>
-            <form method='POST' action={`/files/${file._id}?_method=DELETE`}>
-                    <button>Delete</button>
-                </form>
-            <form method="POST" action={`/files/${file.filename}?_method=PUT`}>
-            <button className="btn btn-primary btn-sm">
-            Add Favorite
+        return (
+            <div className="row">
+                {files.map((file) => file.isAudio ? <div><label>{file.filename}</label><br></br><audio controls>
+                    <source src={`audio/${file.filename}`} />
+                </audio>
+                    <form method='POST' onClick={areYouSure} action={`/files/${file._id}?_method=DELETE`}>
+                        <button>Delete</button>
+                    </form>
+                    <form method="POST" action={`/files/${file.filename}?_method=PUT`}>
+                        <button className="btn btn-primary btn-sm">
+                            Add Favorite
           </button>
-            </form>
-                <script>
-        {document.addEventListener('play', function(e){
-    var audios = document.getElementsByTagName('audio');
-    for(var i = 0, len = audios.length; i < len;i++){
-        if(audios[i] !== e.target){
-            audios[i].pause();
-        }
-    }
-}, true)
-};
+                    </form>
+                    <script>
+                        {document.addEventListener('play', function (e) {
+                            var audios = document.getElementsByTagName('audio');
+                            for (var i = 0, len = audios.length; i < len; i++) {
+                                if (audios[i] !== e.target) {
+                                    audios[i].pause();
+                                }
+                            }
+                        }, true)
+                        };
 </script>
-            </div> : null
-            )}
-        </div>
-    );
-} else {
-    return (
-        //const notPurchased = props.groceries.filter(grocery => !grocery.purchased);
-        <div className="row">
-    {files.filter((file) => file.isFavorite == "true").map((file) => file? <div><label>{file.filename}</label><br></br><audio controls>
-                <source src={`audio/${file.filename}`} />
-            </audio>
-            <form method='POST' action={`/tagfiles/${file.filename}?_method=PUT`}>
-                    <button>Remove From Favorites</button>
-                </form>
-                <script>
-        {document.addEventListener('play', function(e){
-    var audios = document.getElementsByTagName('audio');
-    for(var i = 0, len = audios.length; i < len;i++){
-        if(audios[i] !== e.target){
-            audios[i].pause();
-        }
-    }
-}, true)
-};
+                </div> : null
+                )}
+            </div>
+        );
+    } else {
+        return (
+            //const notPurchased = props.groceries.filter(grocery => !grocery.purchased);
+            <div className="row">
+                {files.filter((file) => file.isFavorite == "true").map((file) => file ? <div><label>{file.filename}</label><br></br><audio controls>
+                    <source src={`audio/${file.filename}`} />
+                </audio>
+                    <form method='POST' onClick={areYouSure} action={`/tagfiles/${file.filename}?_method=PUT`}>
+                        <button>Remove From Favorites</button>
+                    </form>
+                    <script>
+                        {document.addEventListener('play', function (e) {
+                            var audios = document.getElementsByTagName('audio');
+                            for (var i = 0, len = audios.length; i < len; i++) {
+                                if (audios[i] !== e.target) {
+                                    audios[i].pause();
+                                }
+                            }
+                        }, true)
+                        };
 </script>
-            </div> : null
-            )}
-        </div>
-    );
-} 
+                </div> : null
+                )}
+            </div>
+        );
+    }
 }
 export default Audio;
