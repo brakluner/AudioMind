@@ -20,10 +20,10 @@ function App() {
           <Route path="/profile" component={ProfilePage} exact />
           <Route path="/connect" component={Connect} exact />
           <Route path="/browse" component={Browse} exact />
-
+          <Route path='/favorites' component={FavoritesPage}/>
           <Route path="/"><LandingPage /></Route>
 
-          <Route path='/favorites' component={FavoritesPage}/>
+          
           <Route path="/signin" component={Signin} exact />
           {/* <Route path="/profilepage"><Profile/></Route> */}
         </Switch>
