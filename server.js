@@ -166,7 +166,7 @@ app.put('/tagfiles/:filename', (req, res) => {
 
     gfs.files.findOneAndUpdate({filename: req.params.filename}, { $set: {'isFavorite': 'false','isFavoriteVideo': 'false'}}, 
          {upsert: true})
-    res.redirect('/favorites')
+    res.redirect('/')
     
     });
 })
