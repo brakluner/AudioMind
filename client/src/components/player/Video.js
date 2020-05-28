@@ -19,6 +19,10 @@ function Video() {
             )
             .catch(err => console.log(err));
     };
+    const deleteButton = (id) => {
+        const call = () => areYouSure(id);
+        return <button onClick={call}>Delete</button>;
+      }
     var path = window.location.pathname
 
     if (path === '/') {
@@ -28,9 +32,8 @@ function Video() {
                 {files.map((file) => file.isVideo ? <div><label>{file.filename}</label><br></br><video width="500" controls>
                     <source src={`video/${file.filename}`} />
                 </video>
-                    <form method='post' onClick={areYouSure} action={`/files/${file._id}>)}?_method=DELETE`}>
-                        <button>Delete</button>
-                    </form>
+                    <form>
+                    {deleteButton(file._id)}                    </form>
                     <form method="POST" action={`/videofiles/${file.filename}?_method=PUT`}>
                         <button className="btn btn-primary btn-sm">
                             Add Favorite
@@ -43,10 +46,10 @@ function Video() {
     } else {
         return (
             <div className="row video">
-                {files.filter((file) => file.isFavoriteVideo == "true").map((file) => file ? <div><label>{file._id}</label><br></br><video width="500" controls>
+                {files.map((file) => file.isFavoriteVideo == "true" ? <div><label>{file.filename}</label><br></br><video width="500" controls>
                     <source src={`video/${file.filename}`} />
                 </video>
-                    <form method='post' onClick={areYouSure} action={`/tagfiles/${file.filename}?_method=PUT`}>
+                    <form method='post' action={`/tagfiles/${file.filename}?_method=PUT`}>
                         <button>Remove Favorite</button>
                     </form>
                 </div> : null
