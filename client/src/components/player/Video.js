@@ -46,7 +46,7 @@ function Video() {
     } else {
         return (
             <div className="row video">
-                {files.filter((file) => file.isFavoriteVideo == "true").map((file) => file ? <div><label>{file._id}</label><br></br><video width="500" controls>
+                {files.filter((file) => file.isFavoriteVideo == "true").map((file) => file ? <div><label>{file.filename}</label><br></br><video width="500" controls>
                     <source src={`video/${file.filename}`} />
                 </video>
                     <form method='post' action={`/tagfiles/${file.filename}?_method=PUT`}>
