@@ -59,7 +59,7 @@ function Audio() {
         return (
             //const notPurchased = props.groceries.filter(grocery => !grocery.purchased);
             <div className="row">
-                {files.filter((file) => file.isFavorite == "true").map((file) => file ? <div><label>{file.filename}</label><br></br><audio controls>
+                {files.map((file) => file.isFavorite == "true" ? <div><label>{file.filename}</label><br></br><audio controls>
                     <source src={`audio/${file.filename}`} />
                 </audio>
                     <form method='POST' action={`/tagfiles/${file.filename}?_method=PUT`}>
