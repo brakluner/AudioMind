@@ -19,7 +19,10 @@ function Audio() {
             )
             .catch(err => console.log(err));
     };
-    console.log(files)
+    const deleteButton = (id) => {
+        const call = () => areYouSure(id);
+        return <button onClick={call}>Delete</button>;
+      }
     var path = window.location.pathname
 
     if (path === '/') {
@@ -29,8 +32,8 @@ function Audio() {
                 {files.map((file) => file.isAudio ? <div><label>{file.filename}</label><br></br><audio controls>
                     <source src={`audio/${file.filename}`} />
                 </audio>
-                    <form method='POST' onClick={areYouSure} action={`/files/${file._id}?_method=DELETE`}>
-                        <button>Delete</button>
+                    <form>
+                        {deleteButton(file._id)}
                     </form>
                     <form method="POST" action={`/files/${file.filename}?_method=PUT`}>
                         <button className="btn btn-primary btn-sm">
@@ -56,10 +59,10 @@ function Audio() {
         return (
             //const notPurchased = props.groceries.filter(grocery => !grocery.purchased);
             <div className="row">
-                {files.filter((file) => file.isFavorite == "true").map((file) => file ? <div><label>{file.filename}</label><br></br><audio controls>
+                {files.map((file) => file.isFavorite == "true" ? <div><label>{file.filename}</label><br></br><audio controls>
                     <source src={`audio/${file.filename}`} />
                 </audio>
-                    <form method='POST' onClick={areYouSure} action={`/tagfiles/${file.filename}?_method=PUT`}>
+                    <form method='POST' action={`/tagfiles/${file.filename}?_method=PUT`}>
                         <button>Remove From Favorites</button>
                     </form>
                     <script>
