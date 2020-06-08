@@ -224,7 +224,7 @@ app.get('/audio/:filename', (req, res) => {
 // @route DELETE /files/:id
 //description delets file
 app.delete('/files/:id', (req, res) => {
-    gfs.remove({ _id: req.params.id, root: 'uploads' }, (err, gridStore) => {
+    gfs.remove({ _id: req.params.id, root: 'uploads' }, {files_id: req.params.id}, (err, gridStore) => {
         if (err) {
             return res.status(404).json({ err: err });
         }
