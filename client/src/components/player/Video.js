@@ -21,7 +21,7 @@ function Video() {
     };
     const deleteButton = (id) => {
         const call = () => areYouSure(id);
-        return <button onClick={call}>Delete</button>;
+        return <button onClick={call} className = "btn btn-primary btn-sm" style = {{textTransform: "none", fontFamily: "Verdana, sans-serif", backgroundColor: "tomato", cursor: "pointer", width: "100%"}} >Delete Video</button>;
       }
     var path = window.location.pathname
 
@@ -29,31 +29,131 @@ function Video() {
 
         return (
             <div className="row video">
-                {files.map((file) => file.isVideo ? <div><label>{file.filename}</label><br></br><video width="500" controls>
+
+                <div className = "col s12">
+
+
+
+
+
+                <ul className = "collection">
+                {files.map((file) => file.isVideo ? <div><li className="collection-item">
+                    
+
+                   
+                    
+                    
+                    
+                    
+                    <br></br>
+                
+                
+                
+                <div className = "row">
+                <div className = "col s2">
+
+                </div>
+                
+
+                <div className = "col s8">
+                <label>{file.filename}</label>
+
+                <video width="100%" controls>
                     <source src={`video/${file.filename}`} />
                 </video>
-                    <form>
-                    {deleteButton(file._id)}                    </form>
-                    <form method="POST" action={`/videofiles/${file.filename}?_method=PUT`}>
-                        <button className="btn btn-primary btn-sm">
+
+                </div>
+                <div className = "col s2">
+                    
+                    </div>
+
+
+                </div>
+
+
+                   <div className = "row">
+                   <div className = "col s2"></div>
+            <div className = "col s4">
+
+                    <form method="POST" action={`/videofiles/${file.filename}?_method=PUT`} >
+                        <button className="btn btn-primary btn-sm" style = {{textTransform: "none", fontFamily: "Verdana, sans-serif", backgroundColor: "PaleGoldenRod", cursor: "pointer", width: "100%", color: "black"}}>
                             Add Favorite
           </button>
-                    </form>
+                    </form></div> 
+                    
+                    <div className = "col s4">
+                        <form >
+                    {deleteButton(file._id)}                    </form></div>
+                    
+                    <div className = "col s2"></div>
+                    
+                    </div></li>
                 </div> : null
                 )}
+                </ul>
+                </div>
             </div>
         );
     } else {
         return (
             <div className="row video">
-                {files.map((file) => file.isFavoriteVideo == "true" ? <div><label>{file.filename}</label><br></br><video width="500" controls>
+                <ul className = "collection">
+                {files.map((file) => file.isFavoriteVideo == "true" ? <div>
+                    
+                    
+                    <li className="collection-item">
+                        <div className = "row">
+                        <div className = "col s1">
+
+
+                        </div>
+
+                        <div className = "col s10">
+                        <label>{file.filename}</label><br></br><video width="100%" controls>
                     <source src={`video/${file.filename}`} />
                 </video>
-                    <form method='post' action={`/tagfiles/${file.filename}?_method=PUT`}>
-                        <button>Remove Favorite</button>
+                        </div>
+
+                        <div className = "col s1">
+
+
+                        </div>
+                    
+                        </div> 
+
+            <div className = "row">
+
+                <div className = "col s4">
+
+                </div>
+
+                <div className = "col s4">
+
+                <form method='post' action={`/tagfiles/${file.filename}?_method=PUT`}>
+                        <button className = "btn btn-primary btn-sm" style = {{textTransform: "none", fontFamily: "Verdana, sans-serif", backgroundColor: "salmon", cursor: "pointer", width: "100%"}}>Remove favorite</button>
                     </form>
-                </div> : null
+
+
+                </div>
+
+
+          
+
+
+                    <div className = "col s4">
+                    
+                </div>
+
+            </div>
+
+                    
+
+
+
+                </li></div> : null
                 )}
+
+</ul>
             </div>
         )
     }

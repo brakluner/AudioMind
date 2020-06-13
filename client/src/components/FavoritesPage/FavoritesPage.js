@@ -10,15 +10,29 @@ function LandingPage() {
         return (
             <div style={{ width: '100%', margin: 'auto' }}>
                 <Grid className="landing-grid">
-                <Cell col={12}>
-                        <div className="favorites-content">
-                            <h1>favorites</h1>
-                            <div className="list-content">
+      
+                        
+
+                            <Cell col={6}>
+
+                            <h3 style = {{fontFamily: "Brush Script MT, Brush Script Std, cursive", textAlign: "center"}}>Audio playlist</h3>
                                <Audio />
+                               
+                               
+                               </Cell>
+
+                               <Cell col= {6}>
+
+                               <h3 style = {{fontFamily: "Brush Script MT, Brush Script Std, cursive", textAlign: "center"}}>Video playlist</h3>
                                <Video />
-                            </div>
-                        </div>
-                    </Cell>
+
+                               </Cell>
+                               
+                               
+
+
+
+                    
                 </Grid>
             </div>
         )
