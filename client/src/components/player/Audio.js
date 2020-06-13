@@ -21,7 +21,7 @@ function Audio() {
     };
     const deleteButton = (id) => {
         const call = () => areYouSure(id);
-        return <button onClick={call}>Delete</button>;
+        return <button onClick={call} style = {{color: "tomato", border: "white", fontSize: "28px", cursor: "pointer"}}><i class="material-icons">delete_forever</i></button>;
       }
     var path = window.location.pathname
 
@@ -29,17 +29,22 @@ function Audio() {
 
         return (
             <div className="row">
-                {files.map((file) => file.isAudio ? <div><label>{file.filename}</label><br></br><audio controls>
+
+
+                <ul className = "collection">
+                
+                {files.map((file) => file.isAudio ? <div><li className="collection-item avatar"><form method="POST" action={`/files/${file.filename}?_method=PUT`}>
+                        <button className="circle" style = {{backgroundColor: "PaleGoldenRod", cursor: "pointer"}}>
+                        <i className="material-icons">grade</i>
+          </button>
+                    </form><label>{file.filename}</label><br></br><audio controls>
                     <source src={`audio/${file.filename}`} />
                 </audio>
-                    <form>
+                    <form className = "secondary-content">
                         {deleteButton(file._id)}
                     </form>
-                    <form method="POST" action={`/files/${file.filename}?_method=PUT`}>
-                        <button className="btn btn-primary btn-sm">
-                            Add Favorite
-          </button>
-                    </form>
+                    
+                    </li>
                     <script>
                         {document.addEventListener('play', function (e) {
                             var audios = document.getElementsByTagName('audio');
@@ -53,6 +58,8 @@ function Audio() {
 </script>
                 </div> : null
                 )}
+
+</ul>
             </div>
         );
     } else {
