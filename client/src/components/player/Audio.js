@@ -40,7 +40,7 @@ function Audio() {
                     </form><label>{file.filename}</label><br></br><audio controls>
                     <source src={`audio/${file.filename}`} />
                 </audio>
-                    <form className = "secondary-content">
+                    <form className = "secondary-content" style = {{float: "right"}}>
                         {deleteButton(file._id)}
                     </form>
                     

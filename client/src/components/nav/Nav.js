@@ -22,7 +22,7 @@ export default function NavBar() {
       
     </div>
     <div class="nav-content">
-      <ul class="tabs tabs-transparent">
+      <ul class="tabs tabs-transparent" style = {{fontFamily: "Verdana, sans-serif"}}>
         <li class="tab"><Link to="/">My Uploads</Link></li>
         <li class="tab"><Link to="/browse">Browse</Link></li>
         <li class="tab"><Link to="/favorites">Favorites</Link></li>
