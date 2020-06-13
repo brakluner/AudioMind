@@ -66,12 +66,21 @@ function Audio() {
         return (
             //const notPurchased = props.groceries.filter(grocery => !grocery.purchased);
             <div className="row">
-                {files.map((file) => file.isFavorite == "true" ? <div><label>{file.filename}</label><br></br><audio controls>
+
+<ul className = "collection">
+
+                {files.map((file) => file.isFavorite == "true" ? <div><li className="collection-item"><label>{file.filename}</label><br></br><audio controls>
                     <source src={`audio/${file.filename}`} />
                 </audio>
-                    <form method='POST' action={`/tagfiles/${file.filename}?_method=PUT`}>
-                        <button>Remove From Favorites</button>
+
+
+                <div className = "secondary-content">
+
+                <form method='POST' action={`/tagfiles/${file.filename}?_method=PUT`}>
+                        <button className = "btn btn-primary btn-sm" style = {{textTransform: "none", fontFamily: "Verdana, sans-serif", backgroundColor: "salmon", cursor: "pointer"}}>Remove favorite</button>
                     </form>
+                </div>
+                    </li>
                     <script>
                         {document.addEventListener('play', function (e) {
                             var audios = document.getElementsByTagName('audio');
@@ -85,6 +94,9 @@ function Audio() {
 </script>
                 </div> : null
                 )}
+
+</ul>
+
             </div>
         );
     }
