@@ -16,12 +16,18 @@ const app = express();
 app.use(bodyParser.json());
 app.use(methodOverride('_method'));
 
-app.use(morgan('tiny'));
+if (process.env.NODE_ENV === "production") {
+    app.use(express.static("client/build"));
+   }
 
+require('./routes')(app);
+
+app.use(morgan('tiny'));
 
 
 //mongoURI
 
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/gridFS");
 
 const mongoURI = process.env.MONGODB_URI || "mongodb://localhost/gridFS"
 
@@ -233,11 +239,6 @@ app.delete('/files/:id', (req, res) => {
     })
 })
 
-
-
-// if (process.env.NODE_ENV === "production") {
-    app.use(express.static("client/build"));
-//   }
 
 const port = process.env.PORT || 3001;
 

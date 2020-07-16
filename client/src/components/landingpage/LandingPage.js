@@ -1,6 +1,5 @@
-import React, { Component } from 'react';
-import { Grid, Cell, CardActions, Button, } from 'react-mdl';
-import { NavLink } from 'react-router-dom';
+import React from 'react';
+import { Grid, Cell } from 'react-mdl';
 import Audio from '../player/Audio';
 import Video from '../player/Video';
 
