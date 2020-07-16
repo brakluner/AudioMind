@@ -14,7 +14,7 @@ function LandingPage() {
                         
 
                             <Cell col={6}>
-
+           
                             <h3 style = {{fontFamily: "Brush Script MT, Brush Script Std, cursive", textAlign: "center"}}>Audio playlist</h3>
                                <Audio />
                                
@@ -34,6 +34,7 @@ function LandingPage() {
 
                     
                 </Grid>
+               
             </div>
         )
     
