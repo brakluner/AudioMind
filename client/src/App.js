@@ -10,6 +10,7 @@ import Connect from "./components/connect/Connect";
 import Browse from "./components/browse/Browse";
 import { getFromStorage, setInStorage } from '../src/utils/storage';
 import Signin from "./components/login/signin";
+import logo from './logo.PNG';
 
 class App extends React.Component {
   constructor(props) {
@@ -251,15 +252,19 @@ return (<div><p>Loading...</p></div>);
 
 if (!token) {
 return (
-  <div className="row">
-    <div className="col-4">
+  <div><picture style = {{position: 'fixed'}}>
+  <img src= {logo} style = {{width: "200px"}}/></picture>
+ 
+  <div style = {{background: '#334F7A', minHeight: '100vh'}}>
+    <p style = {{textAlign: 'center', paddingTop: '2%', fontSize: '36px', color: '#b3d4fc'}}>Welcome to your next hit song</p>
+    <div className="col-4" style = {{marginLeft: '20%', marginRight: '20%', paddingTop: '2%'}}>
         {
           (signInError) ? (
             <p>{signInError}</p>
           ) : (null)
         }
-        <form className="form-signin">
-        <p>Sign In</p>
+        <form className="form-signin" style  = {{background: 'white', padding: '3%', border: '3px solid #b3d4fc', borderRadius: '25px'}}>
+        <p>Sign In to Your Account</p>
         <label for="inputEmail" className="sr-only">Email Address</label>
         <input 
         id='inputEmail'
@@ -280,20 +285,20 @@ return (
         onChange={this.onTextboxChangeSignInPassword}
         />
         <br />
-        <button onClick={this.onSignIn}>Sign In</button>
+        <button onClick={this.onSignIn} className = "btn waves-effect" style = {{background: '#b3d4fc', left: '5%'}}>Sign In</button>
         </form>
     </div>
-    <div className='col-4'>
+    {/* <div className='col-4'>
       <h1>AUDIO MIND</h1>
-    </div>
-    <div className='col-4'>
+    </div> */}
+    <div className='col-4' style = {{marginLeft: '20%', marginRight: '20%', marginTop: '5%'}}>
     {
           (signUpError) ? (
             <p>{signUpError}</p>
           ) : (null)
         }
-      <form className="form-signin">
-      <p>Sign Up</p>
+      <form className="form-signin" style  = {{background: 'white', padding: '3%', border: '3px solid #b3d4fc', borderRadius: '25px'}}>
+      <p>Don't have an account? Register here</p>
       <label for="inputFirstName" className="sr-only">First Name</label>
       <input 
       className="form-control"
@@ -330,9 +335,10 @@ return (
       value={signUpPassword}
       onChange={this.onTextboxChangeSignUpPassword} 
       /><br />
-      <button onClick={this.onSignUp}>Sign Up</button>
+      <button onClick={this.onSignUp} className = "btn waves-effect" style = {{background: '#b3d4fc', left: '5%'}}>Sign Up</button>
       </form>
     </div>
+  </div>
   </div>
 )
 }
@@ -340,7 +346,7 @@ return (
 
   return (
     <div>
-      <button onClick={this.logout}>Log Out</button>
+      <button className = "btn waves-effect waves-light" onClick={this.logout} style = {{position: 'absolute', top: '2%', right: '2%'}}>Log Out</button>
       <BrowserRouter>
       <NavBar></NavBar>
       <div>
