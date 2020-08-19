@@ -9,8 +9,8 @@ import M from  'materialize-css/dist/js/materialize.min.js';
 import Signin from "../login/signin";
 import { getFromStorage, setInStorage } from '../../utils/storage';
 
-const open = 'translateX(0%)';
-const close = 'translateX(-105%%)';
+// const open = 'translateX(0%)';
+// const close = 'translateX(-105%%)';
 
 
 
@@ -46,6 +46,8 @@ export default class NavBar extends React.Component {
   componentDidMount() {
     let sidenav = document.querySelector('#slide-out');
     M.Sidenav.init(sidenav, {});
+
+
     const obj = getFromStorage('the_main_app');
    
     if (obj && obj.token) {
@@ -361,7 +363,7 @@ logout() {
     <nav className="nav-extended color">
     <div className="nav-wrapper">
     <img className = "activator" src={logo} alt = "logo" width = "200px"/> 
-      <a href="#" data-target="mobile-demo" className="sidenav-trigger"><i className="material-icons">menu</i></a>
+      {/* <a href="#" data-target="mobile-demo" className="sidenav-trigger"><i className="material-icons">menu</i></a> */}
       {/* <ul id="nav-mobile" className="right hide-on-med-and-down">
         <li><Link to="/profile">Profile</Link></li>
         
@@ -382,18 +384,18 @@ logout() {
     
   </nav>
 
-  <ul className="sidenav" id="mobile-demo">
+  {/* <ul className="sidenav" id="mobile-demo">
   <li><Link to="/profile">Profile</Link></li>
         
         
-  </ul>
+  </ul> */}
   </div>
 
   <div className = "mobileShow">
   <nav>
-...
-<a href="#" data-target="slide-out" className="sidenav-trigger show-on-large"><i className="material-icons">menu</i></a>
-<ul> ... </ul>
+
+<a href="/#" data-target="slide-out" className="sidenav-trigger show-on-large"><i className="material-icons">menu</i></a>
+<ul>  </ul>
 </nav>
 <ul id="slide-out" className="sidenav">
  <li><a href="#item1">Item 1</a></li>
@@ -402,30 +404,7 @@ logout() {
 </ul>
   </div>
 
-  <style>
-                  {`
-                   .desktopShow {
-                     display: none;
-                   }
-
-
-                  
-                   .mobileShow {
-                       display: none;
-                   }
-                  
-                  @media screen and (min-width: 992px) {
-                      .desktopShow {
-                        display: inline
-                      }
-                  }
-
-                  @media screen and (max-width: 992px) {
-                      .mobileShow {
-                          display: inline;
-                      }
-                  }`}  
-                </style>
+  
                 
                 
   </div>

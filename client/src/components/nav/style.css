@@ -6,3 +6,25 @@
 .delete {
     background-color: whitesmoke;
 }
+
+.desktopShow {
+    display: none;
+  }
+
+
+ 
+  .mobileShow {
+      display: none;
+  }
+
+  @media screen and (min-width: 993px) {
+    .desktopShow {
+      display: inline
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .mobileShow {
+        display: inline;
+    }
+}

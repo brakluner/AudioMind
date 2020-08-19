@@ -17,7 +17,7 @@ The application has the following features:
 
 Screenshot of the application:
 
+![](./AM.PNG)
 
-
-AudioMind Is a creative thinkspace which allows artists to upload custom tracks of music and create playlists. With the integration of Spotify, users can conveniently update their playlists and find inspiration for their own creative works. 
+AudioMind was created using ReactJS, Materialize, Node, Mongoose, an Express server, GridFS, Passport for authentication and was deployed with Heroku using mLab for data storage.
 
